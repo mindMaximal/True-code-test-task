@@ -90,12 +90,23 @@ $(function() {
     }
   })
 
+  var  $easyzoom;
+  var api
   $('.gallery-item').click(function (e) { 
     e.preventDefault();
     $('.mfp-content figure').addClass('easyzoom easyzoom--overlay');
     var src = $(this).attr('big-src');
     $('.mfp-content figure .mfp-img').wrap('<a href="' + src + '"></a>');
-    $('.mfp-content figure').easyZoom();
+    $easyzoom = $('.mfp-content figure').easyZoom();
+    api = $easyzoom.data('easyZoom');
+  });
+
+  $(document).on('click', '.mfp-arrow', function () { 
+    api.teardown();
+    var src = $('.mfp-content figure .mfp-img').attr('src');
+    src = $('.gallery-item img[src="' + src + '"]').parent('.gallery-item').attr('big-src');
+    $('.mfp-content figure a').attr('href', src);
+    $easyzoom = $('.mfp-content figure').easyZoom();
   });
  
 
