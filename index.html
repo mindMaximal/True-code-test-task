@@ -166,11 +166,11 @@
 
 					<div class="wrapper-gallery">					
 						<div class="slider slider-for gallery">
-							<div><img src="img/615-1000x1000.jpg" small-img="img/615-100x100.jpg" alt="Photo"></div>
-							<div><img src="img/616-1000x1000.jpg" small-img="img/616-100x100.jpg" alt="Photo"></div>
-							<div><img src="img/617-1000x1000.jpg" small-img="img/617-100x100.jpg" alt="Photo"></div>
-							<div><img src="img/618-1000x1000.jpg" small-img="img/618-100x100.jpg" alt="Photo"></div>
-							<div><img src="img/619-1000x1000.jpg" small-img="img/619-100x100.jpg" alt="Photo"></div>
+							<div><img src="img/615-500x500.jpg" data-small-img="img/615-100x100.jpg" data-big-img="img/615-1000x1000.jpg" alt="Photo"></div>
+							<div><img src="img/616-500x500.jpg" data-small-img="img/616-100x100.jpg" data-big-img="img/616-1000x1000.jpg" alt="Photo"></div>
+							<div><img src="img/617-500x500.jpg" data-small-img="img/617-100x100.jpg" data-big-img="img/617-1000x1000.jpg" alt="Photo"></div>
+							<div><img src="img/618-500x500.jpg" data-small-img="img/618-100x100.jpg" data-big-img="img/618-1000x1000.jpg" alt="Photo"></div>
+							<div><img src="img/619-500x500.jpg" data-small-img="img/619-100x100.jpg" data-big-img="img/619-1000x1000.jpg" alt="Photo"></div>
 						</div>
 					</div>
 
@@ -187,8 +187,8 @@
 	<script>
 		$('.wrapper-gallery').prepend('<div class="slider slider-nav"></div>');
 		$('.gallery img').each(function (i, elem) {
-			var small_img = $(elem).attr('small-img');;
-			var src = $(elem).attr('src');
+			var small_img = $(elem).attr('data-small-img');;
+			var src = $(elem).attr('data-big-img');
 			$('.slider-nav').append('<div><img src="' + small_img + '" alt="Photo"></div>');
 			$(elem).wrap('<a href="' + src + '" class="gallery-item"></a>');
 		});
@@ -269,7 +269,8 @@
 			type: 'image',
 			mainClass: 'mfp-with-zoom',
 			gallery:{
-				enabled:true
+				enabled: true,
+				preload: [0,2],
 			},
 		})
 
