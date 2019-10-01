@@ -1,0 +1,109 @@
+@import "vars"
+
+@media only screen and (max-width : 1200px)
+	/**/
+	#home
+		.mask-wrapper
+			top: -20px
+
+@media only screen and (max-width : 992px)
+	#home
+		.mask-wrapper
+			top: 100px
+			left: -180px
+		.booking-wrapper
+			flex-wrap: wrap
+			+flex(row, center, center)
+			.sub-title
+				width: 100%
+				text-align: center
+				margin: 0 0 5px 0
+
+@media only screen and (max-width : 768px)
+	#home
+		.menu-button
+			display: block
+		nav
+			margin: 0
+			.menu
+				position: fixed
+				z-index: 9
+				height: 100vh
+				width: 100%
+				background-color: #ffffff
+				top: 0
+				left: 0
+				bottom: 0
+				right: 0
+				transition: .5s
+				opacity: 0
+				transform: translateX(100%)
+				&-active
+					opacity: 1
+					transform: translateX(0)
+				ul
+					+flex(column, center, center)
+					height: 100%
+					li 
+						margin: 10px 0
+		.mask-wrapper
+			display: none
+		.svg-wrapper
+			text-align: center
+		.vectors
+			margin-top: 80px
+		.title-wrapper
+			span.top-inscription-title
+				text-align: center
+				padding-left: 0
+				left: 50%
+				transform: translate(-50%)
+				top: -65px
+			span.bottom-inscription-title
+				text-align: center
+			.wrapper
+				display: block
+				text-align: center
+				.price-wrapper
+					display: inline-block
+		.booking-wrapper
+			.button-wrapper-submit
+				width: 100%
+				text-align: center
+				margin-top: 10px
+
+@media only screen and (max-width : 480px)
+	#home
+		.booking-wrapper
+			.button-wrapper-submit
+				width: 100%
+				text-align: center
+			.guests
+				width: 100%
+				margin-top: 10px
+				max-width: 326px
+
+@media only screen and (max-width : 350px)
+	#home
+		.booking-wrapper
+			.button-wrapper
+				width: 100%
+				text-align: center
+				max-width: 326px
+				margin-top: 10px		
+
+@media only screen and (min-width : 1200px)
+	#home
+		.mask-wrapper
+			left: -200px
+			top: -40px
+		.title-wrapper
+			span.top-inscription-title
+				padding-left: 7%
+				text-align: left
+	
+@media only screen and (min-width : 1400px)
+	#home
+		.mask-wrapper
+			top: -100px
+			left: -130px
