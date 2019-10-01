@@ -113,8 +113,13 @@ a.phone
 		left: -190px
 		width: 65%
 		z-index: 2
+		animation: moveLeft 1.5s ease-in-out
+		animation-fill-mode: forwards
+		animation-delay: 0.5s
+		opacity: 0
 	nav
 		margin: 70px 0
+		animation: moveLeft 1.5s ease-in-out
 		font-family: "BebasNeueRegular", sans-serif
 		color: $main
 		position: relative
@@ -157,6 +162,7 @@ a.phone
 			max-width: 100%
 			.svg-wrapper
 				position: relative
+				animation: moveLeft 1.5s ease-in-out
 				object 
 					text-align: right
 					max-width: 580px
@@ -171,11 +177,19 @@ a.phone
 			position: absolute
 			top: -50px
 			display: inline-block
+			animation: moveLeft 1.5s ease-in-out
+			animation-fill-mode: forwards
+			animation-delay: 1s
+			opacity: 0
 		span.bottom-inscription-title
 			font-family: "BebasNeueBook", sans-serif
 			font-size: 2.2em
 			margin-top: .8em
 			color: #444444
+			animation: moveLeft 1.5s ease-in-out
+			animation-fill-mode: forwards
+			animation-delay: 1s
+			opacity: 0
 		.wrapper
 			margin-left: auto
 			margin-right: 0
@@ -185,6 +199,10 @@ a.phone
 				text-align: left
 				position: relative
 				margin-top: 80px
+				animation: moveLeft 1.5s ease-in-out
+				animation-fill-mode: forwards
+				animation-delay: 2s
+				opacity: 0
 				&:before
 					content: url(../img/border.png)
 					top: 50%
@@ -226,6 +244,10 @@ a.phone
 		padding-right: 0
 		padding-left: 0
 		z-index: 1
+		animation: moveLeft 1.5s ease-in-out
+		animation-fill-mode: forwards
+		animation-delay: .5s
+		opacity: 0
 	.booking-wrapper
 		z-index: 3
 		background-color: #d3c1a2
@@ -297,5 +319,13 @@ a.phone
 					background-color: transparent
 					//color: #fbd407
 					box-shadow: 0 5px 6px rgba(0, 0, 0, 0)
+
+@keyframes moveLeft
+	0%
+		opacity: 0
+		transform: translateX(-5%)
+	100%
+		opacity: 1
+		transfrom: translateX(0%)
 
 @import "media" // Всегда в конце
