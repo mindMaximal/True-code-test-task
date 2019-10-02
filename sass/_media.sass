@@ -4,13 +4,14 @@
 	/**/
 	#home
 		.mask-wrapper
-			top: -20px
+			top: -60px
+			left: -425px
 
 @media only screen and (max-width : 992px)
 	#home
 		.mask-wrapper
-			top: 100px
-			left: -180px
+			top: 20px
+			left: -400px
 		.booking-wrapper
 			flex-wrap: wrap
 			+flex(row, center, center)
@@ -20,6 +21,9 @@
 				margin: 0 0 5px 0
 
 @media only screen and (max-width : 768px)
+	.music
+		left: 10px
+		top: 15px
 	#home
 		.menu-button
 			display: block
@@ -45,7 +49,7 @@
 					+flex(column, center, center)
 					height: 100%
 					li 
-						margin: 10px 0
+						margin: 15px 0
 		.mask-wrapper
 			display: none
 		.svg-wrapper
@@ -59,6 +63,7 @@
 				left: 50%
 				transform: translate(-50%)
 				top: -65px
+				white-space: nowrap
 			span.bottom-inscription-title
 				text-align: center
 			.wrapper
@@ -95,8 +100,8 @@
 @media only screen and (min-width : 1200px)
 	#home
 		.mask-wrapper
-			left: -200px
-			top: -40px
+			left: -230px
+			top: 0px
 		.title-wrapper
 			span.top-inscription-title
 				padding-left: 7%
@@ -105,6 +110,5 @@
 @media only screen and (min-width : 1400px)
 	#home
 		.mask-wrapper
-			top: -100px
-			left: -130px
-
+			top: 0px
+			left: -65px

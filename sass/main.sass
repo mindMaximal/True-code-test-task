@@ -2,11 +2,13 @@
 @import "libs"
 @import "vars"
 @import "_mixins/flex-box"
+@import "fog"
 
 *
 	-webkit-box-sizing: border-box
 	-moz-box-sizing: border-box
 	box-sizing: border-box
+
 	&:before, &:after
 		-webkit-box-sizing: border-box
 		-moz-box-sizing: border-box
@@ -66,30 +68,78 @@ a.phone
 	transition: .3s
 	background-color: transparent
 	color: $main
+
 	&:hover
 		background-color: $border
-		//color: #ffffff
+
+.music
+	position: absolute
+	text-align: center
+	top: -5px
+	left: -70px
+	z-index: 10
+
+	button
+		background-color: #fff
+		border-radius: 50%
+		border: none
+		height: 40px
+		width: 40px
+		position: relative
+		outline: none
+		box-shadow: 0 0 10px rgba(0, 0, 0, .1)
+
+		&:after
+			width: 25px
+			background-color: #000
+			height: 2px
+			position: absolute 
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%) rotate(-45deg)
+			content: ""
+			transition: .3s
+
+		object 
+			position: absolute
+			pointer-events: none
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			height: 20px
+			width: 20px
+	.button_active
+
+		&:after 
+			background-color: transparent
+			width: 0
 
 #home
 	background-color: #ffffff
-	background-image: url(img/background.png)
+	background-image: url("../img/background.png")
 	background-repeat: no-repeat
 	background-position: center top
 	background-size: 100% auto
-	margin-bottom: 150px
+	padding-bottom: 150px
+	position: relative
+	overflow: hidden
+
 	.container-fluid
 		max-width: 1500px
 		position: relative
+
 	.menu-button
 		position: fixed
 		z-index: 10
 		top: 30px
 		right: 30px
 		display: none
+
 		button
 			border: none
 			background-color: transparent
 			outline: none
+
 			span
 				background-color: $main
 				display: block
@@ -99,46 +149,65 @@ a.phone
 				font-size: 0
 				color: transparent
 				transition: .3s
+
 		.button-active
+
 			span
+
 				&:nth-of-type(1)
 					transform: rotate(45deg) translateY(7px)
+
 				&:nth-of-type(2)
 					width: 0
+
 				&:nth-of-type(3)
 					transform: rotate(-45deg)	translateY(-7px)
+					
 	.mask-wrapper
 		position: absolute
 		top: 30px
-		left: -190px
+		left: -150px
 		width: 65%
 		z-index: 2
-		animation: moveLeft 1.5s ease-in-out
+		animation: moveLeft .8s ease-in-out
 		animation-fill-mode: forwards
 		animation-delay: 0.5s
 		opacity: 0
+		pointer-events: none
+
+		video
+			mask: url("../img/mask.svg")
+			mask-repeat: no-repeat
+			mask-size: auto 1028.25px
+
 	nav
 		margin: 70px 0
-		animation: moveLeft 1.5s ease-in-out
 		font-family: "BebasNeueRegular", sans-serif
 		color: $main
 		position: relative
-		z-index: 3
+		z-index: 6
+
 		.menu
+
 			ul
 				padding: 0
 				margin: 0
 				+flex(row, center, space-around)
+
 				li
 					display: block
+
 					a
 						font-size: 1.2em
 						position: relative
+
 						&:hover
 							text-decoration: none
+
 					a:not(.phone)
 						padding: 5px 0
 						color: $main
+
 						&:after
 							content: ""
 							position: absolute
@@ -148,27 +217,39 @@ a.phone
 							left: 0
 							background-color: $border
 							transition: .3s
+
 						&:hover
 							color: $main
+
 							&::after
 								width: 100%
+
 	.title-wrapper
 		text-align: right
+		
 		span
 			display: inline-block
 			text-align: right
 			text-transform: uppercase
+
 		.vectors
 			max-width: 100%
+
 			.svg-wrapper
 				position: relative
 				animation: moveLeft 1.5s ease-in-out
+				animation-fill-mode: forwards
+				animation-delay: 1s
+				opacity: 0
+
 				object 
 					text-align: right
 					max-width: 580px
 					width: 100%
+
 			img
 				max-width: 100%
+
 		span.top-inscription-title
 			text-align: left
 			font-family: "BebasNeueRegular", sans-serif
@@ -181,6 +262,7 @@ a.phone
 			animation-fill-mode: forwards
 			animation-delay: 1s
 			opacity: 0
+
 		span.bottom-inscription-title
 			font-family: "BebasNeueBook", sans-serif
 			font-size: 2.2em
@@ -190,10 +272,12 @@ a.phone
 			animation-fill-mode: forwards
 			animation-delay: 1s
 			opacity: 0
+
 		.wrapper
 			margin-left: auto
 			margin-right: 0
 			display: inline-block
+
 			.price-wrapper
 				padding: 10px 0 10px 50px
 				text-align: left
@@ -203,38 +287,52 @@ a.phone
 				animation-fill-mode: forwards
 				animation-delay: 2s
 				opacity: 0
+
 				&:before
-					content: url(img/border.png)
+					content: url("../img/border.png")
+					width: 0
 					top: 50%
 					left: -2px
 					position: absolute
 					transform: translateY(-50%)
+
+				&:hover
+
+					&:before
+						width: 100%
+						
 				.price
 					margin-bottom: 20px
 					display: inline-block
 					font-family: "MontserratMedium", sans-serif
+					
 					span
 						color: #c7af89
 						display: block
 						text-align: left
 						margin: 0
 						padding: 0
+
 						&:nth-of-type(1)
+
 							font-size: 1em
 						&:nth-of-type(2)
 							font-size: 2.735em
 							line-height: 1em
 							font-weight: bold
+							
 						&:last-of-type
 							font-size: 1.125em
 							text-align: right
 							text-transform: lowercase
+
 				p
 					margin: 0
 					padding: 0
 					font-size: 1.1em
 					max-width: 320px
 					font-family: "MontserratRegular", sans-serif
+
 	.booking-wrapper-border
 		margin-top: 80px
 		border-top: 2px solid #d3c1a2
@@ -244,50 +342,59 @@ a.phone
 		padding-right: 0
 		padding-left: 0
 		z-index: 1
-		animation: moveLeft 1.5s ease-in-out
+		animation: moveLeft .8s ease-in-out
 		animation-fill-mode: forwards
 		animation-delay: .5s
 		opacity: 0
+
 	.booking-wrapper
 		z-index: 3
 		background-color: #d3c1a2
 		padding: 10px 0
 		position: relative
 		+flex(row, center, flex-end)
+
 		.sub-title
 			font-family: "BebasNeueRegular", sans-serif
 			font-size: 1.875em
 			line-height: 1em
 			margin: 0 20px 0 0
 			padding: 0
+
 		&:after
-			content: url(img/figure.png)
+			content: url("../img/figure.png")
 			position: absolute
 			top: 0
 			height: 42px
 			left: 50%
 			transform: translateX(-50%) translateY(-100%)
+
 		&:before
-			content: url(img/figure.png)
+			content: url("../img/figure.png")
 			position: absolute
 			bottom: 0
 			height: 42px
 			left: 50%
 			transform: translateX(-50%) translateY(100%) rotate(180deg)
+
 		.button-wrapper
 			background-color: #ffffff
 			border-radius: 3px
 			padding: 0 15px
 			margin: 0 10px
 			+flex(row, center, center)
+
 			.icon
 				margin-right: 10px
+
 			.information
 				font-family: "MontserratRegular", sans-serif
+
 				span
 					display: block
 					font-size: .75em
 					opacity: .8
+
 				input
 					background-color: transparent
 					border: none
@@ -296,11 +403,15 @@ a.phone
 					max-width: 90px
 		.guests
 			text-align: center
+
 			.information
+				
 				input
 					max-width: 30px
 					text-align: center
+
 		.button-wrapper-submit
+
 			button
 				background-color: #fbd407
 				padding: 6px 30px
@@ -314,18 +425,16 @@ a.phone
 				border: 2px solid transparent
 				box-sizing: border-box
 				transition: .3s
+
 				&:hover
 					border: 2px solid #fbd407
 					background-color: transparent
-					//color: #fbd407
 					box-shadow: 0 5px 6px rgba(0, 0, 0, 0)
 
 @keyframes moveLeft
 	0%
 		opacity: 0
-		transform: translateX(-5%)
 	100%
 		opacity: 1
-		transfrom: translateX(0%)
 
-@import "media" // Всегда в конце
+@import "media"

@@ -1,0 +1,98 @@
+// Fog
+.fog
+
+  &-container
+    overflow: hidden
+    position: absolute
+    height: 100%
+    width: 100%
+    pointer-events: none
+
+  &__img
+    position: absolute
+    bottom: -19%
+    height: 100vh
+    width: 300vw
+
+    &--first
+      background: url("../img/fog-1.png") repeat-x
+      background-size: contain
+      background-position: center
+      animation: marquee 60s linear infinite
+      opacity: .8
+
+    &--second
+      background: url("../img/fog-2.png") repeat-x
+      background-size: contain
+      background-position: center
+      animation: marquee 40s linear infinite
+      opacity: .8
+
+    &--third
+      background: url("../img/fog-3.png") repeat-x
+      background-size: contain
+      background-position: center
+      animation: marquee 100s linear infinite
+      opacity: .8
+    
+    &--fourth
+      background: url("../img/fog-2.png") repeat-x
+      background-size: contain
+      background-position: center
+      animation: marquee 40s linear infinite
+      opacity: .15
+      z-index: 5
+
+    &--rotate
+      background: url("../img/fog-5.png") repeat-x
+      background-size: contain
+      background-position: center
+      opacity: .9
+      max-width: 300px
+      z-index: 0
+
+      &:nth-child(1)
+        animation: marquee-rotate 45s linear infinite
+
+      &:nth-child(2)
+        animation: marquee-rotate 60s linear infinite 
+
+      &:nth-child(3)
+        animation: marquee-rotate 75s linear infinite
+
+// Marquee
+@keyframes marquee
+  0%
+    transform: translate3d(0, 15vh, 0)
+    opacity: 0
+  5%
+    transform: translate3d(-10vw, 13vh, 0)
+    opacity: 1
+  50%
+    transform: translate3d(-100vw, 0, 0)
+    opacity: 1
+  95%
+    transform: translate3d(-190vw, -13vh, 0)
+    opacity: 1
+  100%
+    transform: translate3d(-200vw, -15vh, 0)
+    opacity: 0
+
+
+// Marquee-rotate 
+@keyframes marquee-rotate 
+  0%
+    transform: translate3d(100vw, -20vh, 0) rotate(0deg)
+    opacity: 0
+  5%
+    transform: translate3d(90vw, -18vh, 0) rotate(18deg)
+    opacity: 1
+  50% 
+    transform: translate3d(0vw, 0, 0) rotate(180deg)
+    opacity: 1
+  95%
+    transform: translate3d(-90vw, 18vh, 0) rotate(342deg)
+    opacity: 1
+  100%
+    transform: translate3d(-100vw, 20vh, 0) rotate(360deg)
+    opacity: 0
